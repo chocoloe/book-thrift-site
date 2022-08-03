@@ -1,12 +1,15 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { Route, Routes, BrowserRouter, Link, useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
 import { BookGrid } from './BookGrid';
+import { SearchForm } from './SearchForm';
 
-function HomePage({ books }) {
+function HomePage(props) {
+    const [books, setBooks] = useState(props.books);
     return (
         <>
             <NavBar />
+            <SearchForm allBooks={props.books} setBooks={setBooks} />
             <BookGrid books={books} />
         </>
     );

@@ -1,3 +1,10 @@
-.card-c {
-    max-width: 100px;
+.card-book {
+    min-width: 100%;
+    height: 90%;
+}
+
+.book-card-img {
+    width: 100%;
+    height: 80vw;
+    object-fit: cover;
 }

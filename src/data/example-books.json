@@ -17,6 +17,46 @@
         "price": "$5",
         "contact": "abc345@uw.edu",
         "location": "Capitol Hill"
+    },
+
+    {
+        "name": "Data feminism",
+        "course": "CHID 250",
+        "img": "/img/data-feminism.jpg",
+        "condition": "Used",
+        "price": "$12",
+        "contact": "ann5523@uw.edu",
+        "location": "U-district"
+    },
+
+    {
+        "name": "Don't make me think",
+        "course": "INFO 360",
+        "img": "img/dont-make-me-think.jpg",
+        "condition": "Brand New",
+        "price": "$20",
+        "Contact": "chili666@uw.edu",
+        "Location": "U-district"
+    },
+
+    {
+        "name": "Head First: HTML and CSS",
+        "course": "CSE 153",
+        "img": "/img/head-first.jpg",
+        "condition": "Used",
+        "price": "$5",
+        "contact": "will88@uw.edu",
+        "location": "shoreline"
+    },
+
+    {
+        "name": "Learning web desing",
+        "course": "INFO 330",
+        "img": "/img/learning-web-design.jpg",
+        "condition": "Brand New",
+        "price": "$8",
+        "contact": "weifeng@uw.edu",
+        "location": "U-district"
     }
 
 ]
