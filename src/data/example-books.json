@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Algorithms of opression",
+        "course": "INFO 350",
+        "Condition": "Brand New",
+        "Price": "$10",
+        "Contact": "xyz123@uw.edu",
+        "Location": "U-district"
+    },
+
+    {
+        "name": "Braiding sweetgrass",
+        "course": "BIOL 180",
+        "Condition": "Used",
+        "Price": "$5",
+        "Contact": "abc345@uw.edu",
+        "Location": "Capitol Hill"
+    },
+
+    {
+        "name": "Data feminism",
+        "course": "CHID 250",
+        "Condition": "Used",
+        "Price": "$12",
+        "Contact": "ann5523@uw.edu",
+        "Location": "U-district"
+    },
+
+    {
+        "name": "Don't make me think",
+        "course": "INFO 360",
+        "Condition": "Brand New",
+        "Price": "$20",
+        "Contact": "chili666@uw.edu",
+        "Location": "U-district"
+    },
+
+    {
+        "name": "Head First: HTML and CSS",
+        "course": "CSE 153",
+        "Condition": "Used",
+        "Price": "$5",
+        "Contact": "will88@uw.edu",
+        "Location": "shoreline"
+    },
+
+    {
+        "name": "Learning web desing",
+        "course": "INFO 330",
+        "Condition": "Brand New",
+        "Price": "$8",
+        "Contact": "weifeng@uw.edu",
+        "Location": "U-district"
+    }
+
+
+]
