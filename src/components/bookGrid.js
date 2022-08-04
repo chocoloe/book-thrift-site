@@ -1,6 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+export function BookGrid({ books }) {
+
+    let bookArray = books.map(book => <BookCard key={book.name} book={book} />)
+    return (
+        <div className="container">
+            <div className="row">
+                { bookArray }
+            </div>
+        </div>
+    );
+}
+
 export function BookCard({ book }) {
     return(
         <div className="col col-12 col-md-6 col-xl-3 d-flex">
@@ -16,18 +28,6 @@ export function BookCard({ book }) {
                     </ul>
                     <Link to='/detail' state={{ book: book }}>More Details</Link>
                 </div>
-            </div>
-        </div>
-    );
-}
-
-export function BookGrid({ books }) {
-
-    let bookArray = books.map(book => <BookCard key={book.name} book={book} />)
-    return (
-        <div className="container">
-            <div className="row">
-                { bookArray }
             </div>
         </div>
     );
