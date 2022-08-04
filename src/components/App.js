@@ -4,8 +4,7 @@ import HomePage from './HomePage';
 import DetailPage from './DetailPage';
 import AddBook from './AddBook';
 
-
-function App({ books }) {
+function App(props) {
     return (
         <BrowserRouter>
             <Routes>
