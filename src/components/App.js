@@ -4,11 +4,11 @@ import HomePage from './HomePage';
 import DetailPage from './DetailPage';
 import AddBook from './AddBook';
 
-function App(props) {
+function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<HomePage books={books} />} />
+                <Route path='/' element={<HomePage />} />
                 <Route path='/detail' element={<DetailPage/>} />
                 <Route path='/addBook' element={<AddBook/>} />
             </Routes>

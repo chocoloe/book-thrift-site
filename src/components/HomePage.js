@@ -20,8 +20,8 @@ export default function HomePage(props) {
 
     return (
         <>
-            <NavBar books={books} setBooks={setBooks} />
-            <SearchForm allBooks={props.books} setBooks={setBooks} />
+            <NavBar />
+            <SearchForm allBooks={books} setBooks={setBooks} />
             <BookGrid books={books} setBooks={setBooks} />
         </>
     );
