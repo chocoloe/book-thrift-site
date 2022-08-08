@@ -1,34 +1,28 @@
-import React, { useRef } from 'react';
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button';
+import React, { useState, useRef } from 'react';
 
 export function SearchForm({ allBooks, setBooks }) {
 
-    const searchRef = useRef();
+    const [search, setSearch] = useState("");
+
+    const handleClick = event => {
+        const searchInput = event.target.value;
+        setSearch(searchInput);
+    }
 
     const handleSearch = event => {
         event.preventDefault();
-        const filteredBooks = allBooks.filter(book => book.name.toLowerCase().includes(searchRef.current.value));
+        const filteredBooks = allBooks.filter(book => book.name.toLowerCase().includes(search));
         setBooks(filteredBooks);
     }
     
     return (
-        <div className="container-fluid">
-            <div className="row align-items-center justify-content-center p-3">
-                <div className="col-auto align-items-center">
-                    <Form>
-                        <Form.Group controlId="searchBook">
-                            <Form.Control type='text' ref={searchRef} placeholder="Search..." />
-                            <Form.Text className="text-muted">
-                            Please type in the book name you want to search for. 
-                            </Form.Text>
-                        </Form.Group>
-                    </Form>
-                </div>
-                <div className="col-auto mb-4">
-                    <Button onClick={handleSearch} type="submit" className="btn btn-primary" active>Search</Button>
-                </div>
-            </div>
+        <div className="container searchbar">
+            <form onSubmit={handleSearch}>
+                <input type="text" value={search} onChange={handleClick} placeholder="Please type in book name." />
+                <button className="btn btn-primary" type="submit" >
+                    <span>Search</span>
+                </button>
+            </form>
         </div>
     );
 }
