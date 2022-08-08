@@ -1,48 +1,67 @@
-import React, { useRef } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import NavBar from './NavBar';
+import React, { useState } from 'react';
 
 export default function AddBook(props) {
-    
-    const nameRef = useRef();
-    const courseRef = useRef();
-    const conditionRef = useRef();
-    const priceRef = useRef();
-    const contactRef = useRef();
-    const locationRef = useRef();
+    const [addBook, setAddBook] = useState({
+        name: "",
+        courseName: "",
+        condition: "",
+        price: "",
+        contact: "",
+        location: ""
+    });
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(nameRef.current.value);
-        console.log(courseRef.current.value);
-        console.log(conditionRef.current.value);
-        console.log(priceRef.current.value);
-        console.log(contactRef.current.value);
-        console.log(locationRef.current.value);
+    }
+
+    const handleChange = (event) => {
+        console.log(event.target.value);
+        const value = event.target.value;
+        setAddBook({
+            ...addBook,
+            [event.target.name]: value
+        });
     }
 
     return (
-        <>
-        <NavBar />
-        <Form>
-            <Form.Group controlId="addBook">
-                <Form.Label>Book Name: </Form.Label>
-                <Form.Control type='text' ref={nameRef} placeholder="Ex. Harry Potter..." />
-                <Form.Label>Course Number: </Form.Label>
-                <Form.Control type='text' ref={courseRef} placeholder="Ex. INFO 340..." />
-                <Form.Label>Condition: </Form.Label>
-                <Form.Control type='text' ref={conditionRef} placeholder="Ex. New..." />
-                <Form.Label>Price: </Form.Label>
-                <Form.Control type='text' ref={priceRef} placeholder="Ex. $10..." />
-                <Form.Label>Contact: </Form.Label>
-                <Form.Control type='text' ref={contactRef} placeholder="Ex. test@gmail.com..." />
-                <Form.Label>Location: </Form.Label>
-                <Form.Control type='text' ref={locationRef} placeholder="Ex. U District..." />
-            </Form.Group>
-        </Form>
-        <div className="col-auto mb-4">
-            <Button onClick={handleSubmit} type="submit" className="btn btn-primary" active>Add Book</Button>
+        <div className="container addingBook">
+            
+            <form onSubmit={handleSubmit}>
+                <label>
+                Name:
+                <input type="text" value={addBook.name} name="name" placeholder="Ex. Harry Potter..." onChange={handleChange} />
+                </label>
+
+                <label>
+                Course Name:
+                <input type="text" value={addBook.courseName} name="courseName" placeholder="Ex. INFO 340..." onChange={handleChange} />
+                </label>
+
+                <label>
+                Condition:
+                <input type="text" value={addBook.condition} name="condition" placeholder="Ex. New..." onChange={handleChange} />
+                </label>
+
+                <label>
+                Price:
+                <input type="text" value={addBook.price} name="price" placeholder="Ex. $10..." onChange={handleChange} />
+                </label>
+
+                <label>
+                Contact:
+                <input type="text" value={addBook.contact} name="contact" placeholder="Ex. xyz123@uw.edu..." onChange={handleChange} />
+                </label>
+
+                <label>
+                Location:
+                <input type="text" value={addBook.location} name="location" placeholder="Ex. U-DISTRICT..." onChange={handleChange} />
+                </label>
+
+                <button className="btn btn-primary" type="submit" >
+                    <span>Submit</span>
+                </button>
+            </form>
+
         </div>
-        </>
-    );
+    ); 
 }

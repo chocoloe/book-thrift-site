@@ -14,3 +14,29 @@
 .nav-link {
     color: purple;
 }
+
+nav ul li {
+    margin-left: 40px;
+}
+
+/*For AddBook*/
+.addingBook {
+    max-width: 50%;
+}
+
+input, label {
+    display: block ;
+    padding-left: 2em;
+    padding-bottom: 1em;
+}
+
+input {
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+form button {
+    display: inline-block;
+    margin-left: 2em;
+    background-color: blue;
+}
