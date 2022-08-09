@@ -15,8 +15,8 @@ export function BookGrid({ books }) {
 
 export function BookCard({ book }) {
     return(
-        <div className="col col-12 col-md-6 col-xl-3 d-flex">
-            <div className="card card-book">
+        <div className="col col-12 col-md-6 col-xl-3 d-flex bookcard">
+            <div className="card">
                 <img className="card-img-top img-fluid book-card-img" src={book.img} alt={book.name} />
                 <div className="card-body">
                     <h3 className="card-title">{book.name}</h3>

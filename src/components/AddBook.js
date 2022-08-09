@@ -15,7 +15,6 @@ export default function AddBook(props) {
     }
 
     const handleChange = (event) => {
-        console.log(event.target.value);
         const value = event.target.value;
         setAddBook({
             ...addBook,
