@@ -19,15 +19,22 @@ export function Signin() {
     }
     
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-            User ID:
-            <input type="text" value={userID} name="userID" onChange={handleChange} />
-            <label>
-            Password:
-            <input type="password" value={passwordInput} name="passwordInput" onChange={handleChange} />
-            </label>
-            <input type="submit" value="Submit" />
-        </form>     
+        <div className='container sign-in'>
+            <form onSubmit={handleSubmit}>
+                <label>
+                User ID:
+                <input type="text" value={signIn.userID} name="userID" onChange={handleChange} />
+                </label>
+
+                <label>
+                Password:
+                <input type="password" value={signIn.passwordInput} name="passwordInput" onChange={handleChange} />
+                </label>
+
+                <button className="btn btn-success" type="submit" >
+                    <span>Sign in</span>
+                </button>
+            </form>   
+        </div>  
     );
 }

@@ -12,7 +12,7 @@ function NavBar({ books, setBooks }) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav justify-content-conter mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link to='/' className="nav-link">Home</Link>
+                            <Link to='/home' className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item">
                             <Link to='/addBook' className="nav-link">Add Book</Link>

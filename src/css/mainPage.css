@@ -55,3 +55,9 @@ form button {
     display: flex;
     padding-bottom: 2em;
 }
+
+/*For sign in page*/
+.sign-in {
+    max-width: 50%;
+    justify-content: center;
+}

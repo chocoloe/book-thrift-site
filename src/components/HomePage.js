@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './NavBar';
 import { SearchForm } from './SearchForm';
 import { BookGrid } from './BookGrid';
 
