@@ -1,6 +1,25 @@
 import React, { useState } from 'react';
+import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
+const FIREBASEUI_CONFIG_OBJ = {
+    signInOptions: [
+        {provider: EmailAuthProvider.PROVIDER_ID},
+        GoogleAuthProvider.PROVIDER_ID
+    ],
+    signInFlow: 'pop-up',
+    callbacks: {
+        // what to run after the auth is successful
+        signInSucessWithAuthResult: () => false
+    },
+    credentialHelper: 'none'
+}
 
 export function Signin() {
+    // the authenticator used in StyledFirebaseAuth
+    const auth = getAuth();
+
+
     const [signIn, setSignIn] = useState({
         userID: "",
         passwordInput: ""
@@ -20,7 +39,9 @@ export function Signin() {
     
     return (
         <div className='container sign-in'>
-            <form onSubmit={handleSubmit}>
+            {/* Firebase authentication */}
+            <StyledFirebaseAuth firebaseAuth={auth} uiConfig={FIREBASEUI_CONFIG_OBJ} />
+            {/* <form onSubmit={handleSubmit}>
                 <label>
                 User ID:
                 <input type="text" value={signIn.userID} name="userID" onChange={handleChange} />
@@ -34,7 +55,7 @@ export function Signin() {
                 <button className="btn btn-success" type="submit" >
                     <span>Sign in</span>
                 </button>
-            </form>   
+            </form>    */}
         </div>  
     );
 }
