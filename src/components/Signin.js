@@ -10,15 +10,14 @@ const FIREBASEUI_CONFIG_OBJ = {
     signInFlow: 'pop-up',
     callbacks: {
         // what to run after the auth is successful
-        signInSucessWithAuthResult: () => false
+        signInSuccessWithAuthResult: () => false
     },
-    credentialHelper: 'none'
+    credentialHelper: 'none',
 }
 
 export function Signin() {
     // the authenticator used in StyledFirebaseAuth
     const auth = getAuth();
-
 
     const [signIn, setSignIn] = useState({
         userID: "",
@@ -41,21 +40,6 @@ export function Signin() {
         <div className='container sign-in'>
             {/* Firebase authentication */}
             <StyledFirebaseAuth firebaseAuth={auth} uiConfig={FIREBASEUI_CONFIG_OBJ} />
-            {/* <form onSubmit={handleSubmit}>
-                <label>
-                User ID:
-                <input type="text" value={signIn.userID} name="userID" onChange={handleChange} />
-                </label>
-
-                <label>
-                Password:
-                <input type="password" value={signIn.passwordInput} name="passwordInput" onChange={handleChange} />
-                </label>
-
-                <button className="btn btn-success" type="submit" >
-                    <span>Sign in</span>
-                </button>
-            </form>    */}
         </div>  
     );
 }

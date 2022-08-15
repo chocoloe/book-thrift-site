@@ -1,12 +1,12 @@
 /*For BookGrid*/
-.card {
+/* .bookcard {
     min-width: 100%;
     height: 50%;
-}
+} */
 
 .book-card-img {
     width: 100%;
-    height: 100%;
+    height: 20vh;
     object-fit: cover;
 }
 

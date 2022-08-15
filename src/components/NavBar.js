@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {NavLink } from 'react-router-dom';
 
 function NavBar({ books, setBooks }) {
     return (
@@ -12,10 +12,10 @@ function NavBar({ books, setBooks }) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav justify-content-conter mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link to='/home' className="nav-link">Home</Link>
+                            <NavLink to='/home' className="nav-link">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link to='/addBook' className="nav-link">Add Book</Link>
+                            <NavLink to='/addBook' className="nav-link">Add Book</NavLink>
                         </li>
                     </ul>
                 </div>
