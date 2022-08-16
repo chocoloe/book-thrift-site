@@ -16,7 +16,7 @@ export function SearchForm({ allBooks, setBooks }) {
     }
     
     return (
-        <div className="container searchbar">
+        <div className="container searchbar p-3">
             <form onSubmit={handleSearch}>
                 <input type="text" value={search} onChange={handleClick} placeholder="Please type in book name." />
                 <button className="btn btn-primary" type="submit" >

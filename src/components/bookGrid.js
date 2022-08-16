@@ -38,7 +38,7 @@ export function BookCard({ book }) {
             <Card >
                 <Card.Img className="card-img-top book-card-img" src={book.img} alt={book.name} />
                 <Card.Body>
-                    <Card.Title>{book.name}</Card.Title>
+                    <Card.Title className='cardTitle'>{book.name}</Card.Title>
                     <div className='cardtext'>
                         <ul>
                             <li className="card-text">{`Course: ${book.course}`}</li>
