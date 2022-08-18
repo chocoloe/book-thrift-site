@@ -1,4 +1,8 @@
 /*For BookGrid*/
+.bookcard {
+    width: auto;
+    height: 100%;
+}
 
 .book-card-img {
     width: 100%;
@@ -9,14 +13,14 @@
 /*For navbar*/
 .icon-title {
     text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Roboto;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
     color: black;
 }
 
 nav li {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Roboto;
     font-weight: bold;
 }
 
