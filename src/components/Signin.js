@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
@@ -19,23 +19,6 @@ export function Signin() {
     // the authenticator used in StyledFirebaseAuth
     const auth = getAuth();
 
-    const [signIn, setSignIn] = useState({
-        userID: "",
-        passwordInput: ""
-    })
-
-    const handleChange = (event) => {
-        const value = event.target.value;
-        setSignIn({
-            ...signIn,
-            [event.target.name]: value
-        });
-    }
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    }
-    
     return (
         <div className='container sign-in'>
             {/* Firebase authentication */}

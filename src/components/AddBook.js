@@ -1,20 +1,53 @@
 import React, { useState } from 'react';
+import { getDatabase, ref, push as firebasePush } from 'firebase/database';
 
 export default function AddBook(props) {
-    const [addBook, setAddBook] = useState({
+
+    const [complete, setComplete] = useState(false);
+
+    const addNewBook = (bookName, courseName, condition, price, contact, location) => {
+        const newBook = {
+          bookName: bookName,
+          course: courseName,
+          condition: condition,
+          price: price,
+          timestamp: Date.now(),
+          contact: contact,
+          location: location
+        }
+    
+        //reference Firebase
+        const db = getDatabase(); //url for the database, not the data itself
+        const allBooks = ref(db, "Books"); //refers to "message" location in the database
+        firebasePush(allBooks, newBook)
+        .then(msg => {
+            console.log(msg);
+            setComplete(true);
+        })
+        .catch(err => console.err(err));
+    }
+    
+
+    const emptyState = {
         name: "",
         courseName: "",
         condition: "",
         price: "",
         contact: "",
         location: ""
-    });
+    }
+
+    const [addBook, setAddBook] = useState(emptyState);
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        addNewBook(addBook.name, addBook.courseName, addBook.condition, 
+            addBook.price, addBook.contact, addBook.location);
+            setAddBook(emptyState);
     }
 
     const handleChange = (event) => {
+        setComplete(false);
         const value = event.target.value;
         setAddBook({
             ...addBook,
@@ -24,7 +57,9 @@ export default function AddBook(props) {
 
     return (
         <div className="container addingBook">
-            
+
+            { complete && <p>MISSON SUCCESS</p>}
+
             <form onSubmit={handleSubmit}>
                 <label>
                 Name:
@@ -60,7 +95,6 @@ export default function AddBook(props) {
                     <span>Submit</span>
                 </button>
             </form>
-
         </div>
     ); 
 }

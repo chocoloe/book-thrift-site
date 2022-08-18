@@ -7,8 +7,6 @@ import DetailPage from './DetailPage';
 import AddBook from './AddBook';
 import { Signin } from './Signin';
 
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-
 function App() {
 
     return (
