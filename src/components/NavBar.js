@@ -1,12 +1,14 @@
 import React from 'react';
-import {NavLink, Link, Navigate } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
 function NavBar({ books, setBooks }) {
+
+    let navigate = useNavigate();
+
     const handleSignOut = () => {
         const auth = getAuth();
-        let navigate = useNavigate();
         signOut(auth).then(() => {
             console.log('sign out successfully!');
             navigate('/signin');
@@ -30,8 +32,11 @@ function NavBar({ books, setBooks }) {
                         <li className="nav-item">
                             <NavLink to='/addBook' className="nav-link">Add Book</NavLink>
                         </li>
-                        <li className="nav-item" onClick={handleSignOut}>   
-                            Signout
+                        <li className="nav-item">
+                            <NavLink to='/signin' className="nav-link">Sign in</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to='/' className="nav-link" onClick={handleSignOut}>Sign out</NavLink>
                         </li>
                     </ul>
                 </div>

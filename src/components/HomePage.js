@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SearchForm } from './SearchForm';
 import { BookGrid } from './BookGrid';
 
@@ -10,33 +10,34 @@ import { getAuth } from 'firebase/auth';
 
 export default function HomePage(props) {
 
-    const navigateTo = useNavigate();
+    const navigate = useNavigate();
     const auth = getAuth();
-
-    if (!auth.currentUser) {
-        console.log('NOT ALLOWED');
-        navigateTo('/signin');
-    }
-
-    console.log('SUCCESS');
-    console.log(auth.currentUser);
+    
+    useEffect(() => {
+        if (!auth.currentUser) {
+            console.log('LOGIN NOT ALLOWED');
+            navigate('/signin');
+            return;
+        }
+        console.log('LOGIN SUCCESS');
+    }, []);
 
     const [books, setBooks] = useState([]);
+    const [displayBooks, setDisplayBooks] = useState(books);
 
     useEffect(() => {
         const bookRef = ref(db, 'Books');
         onValue(bookRef, (snapshot) => {
             const data = snapshot.val();
             setBooks(Object.values(data));
+            setDisplayBooks(Object.values(data));
         });
     }, []);
 
-
-
     return (
         <>
-            <SearchForm allBooks={books} setBooks={setBooks} />
-            <BookGrid books={books} setBooks={setBooks} />
+            <SearchForm allBooks={books} setDisplayBooks={setDisplayBooks} />
+            <BookGrid books={displayBooks} />
         </>
     );
 }

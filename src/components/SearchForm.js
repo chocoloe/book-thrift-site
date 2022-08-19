@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 
-export function SearchForm({ allBooks, setBooks }) {
+export function SearchForm({ allBooks, setDisplayBooks }) {
 
     const [search, setSearch] = useState("");
 
-    const handleClick = event => {
+    const handleChange = event => {
         const searchInput = event.target.value;
         setSearch(searchInput);
     }
 
     const handleSearch = event => {
         event.preventDefault();
-        const filteredBooks = allBooks.filter(book => book.name.toLowerCase().includes(search));
-        setBooks(filteredBooks);
+        const filteredBooks = allBooks.filter(book => book.bookName.toLowerCase().includes(search));
+        setDisplayBooks(filteredBooks);
     }
     
     return (
         <div className="container searchbar p-3">
             <form onSubmit={handleSearch}>
-                <input type="text" value={search} onChange={handleClick} placeholder="Please type in book name." />
+                <input type="text" value={search} onChange={handleChange} placeholder="Please type in book name." />
                 <button className="btn btn-primary" type="submit" >
                     <span>Search</span>
                 </button>

@@ -1,7 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, push as firebasePush } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function AddBook(props) {
+
+    const auth = getAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!auth.currentUser) {
+            console.log('LOGIN NOT ALLOWED');
+            navigate('/signin');
+            return;
+        }
+        console.log('LOGIN SUCCESS');
+    }, []);
 
     const [complete, setComplete] = useState(false);
 
