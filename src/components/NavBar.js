@@ -1,7 +1,20 @@
 import React from 'react';
-import {NavLink, Link } from 'react-router-dom';
+import {NavLink, Link, Navigate } from 'react-router-dom';
+import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 function NavBar({ books, setBooks }) {
+    const handleSignOut = () => {
+        const auth = getAuth();
+        let navigate = useNavigate();
+        signOut(auth).then(() => {
+            console.log('sign out successfully!');
+            navigate('/signin');
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
     return (
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
@@ -16,6 +29,9 @@ function NavBar({ books, setBooks }) {
                         </li>
                         <li className="nav-item">
                             <NavLink to='/addBook' className="nav-link">Add Book</NavLink>
+                        </li>
+                        <li className="nav-item" onClick={handleSignOut}>   
+                            Signout
                         </li>
                     </ul>
                 </div>

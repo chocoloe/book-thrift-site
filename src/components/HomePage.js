@@ -7,17 +7,19 @@ import { db } from '../firebase';
 import { ref, onValue } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 
+
 export default function HomePage(props) {
 
     const navigateTo = useNavigate();
     const auth = getAuth();
-    
+
     if (!auth.currentUser) {
         console.log('NOT ALLOWED');
         navigateTo('/signin');
     }
 
     console.log('SUCCESS');
+    console.log(auth.currentUser);
 
     const [books, setBooks] = useState([]);
 

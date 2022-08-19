@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, EmailAuthProvider, GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 const FIREBASEUI_CONFIG_OBJ = {
@@ -10,7 +10,9 @@ const FIREBASEUI_CONFIG_OBJ = {
     signInFlow: 'pop-up',
     callbacks: {
         // what to run after the auth is successful
-        signInSuccessWithAuthResult: () => false
+        signInSuccessWithAuthResult: () => {
+            
+        }
     },
     credentialHelper: 'none',
 }

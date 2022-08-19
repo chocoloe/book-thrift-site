@@ -58,7 +58,7 @@ export default function AddBook(props) {
     return (
         <div className="container addingBook">
 
-            { complete && <p>MISSON SUCCESS</p>}
+            { complete && <p>Upload Success!</p>}
 
             <form onSubmit={handleSubmit}>
                 <label>

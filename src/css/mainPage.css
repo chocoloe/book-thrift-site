@@ -1,7 +1,7 @@
 /*For BookGrid*/
 .bookcard {
-    width: auto;
-    height: 100%;
+    display: flexbox;
+    
 }
 
 .book-card-img {
