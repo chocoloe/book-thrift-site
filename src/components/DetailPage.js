@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
-import { async } from '@firebase/util';
 
 export default function DetailPage() {
     const location = useLocation();
@@ -29,7 +28,7 @@ export default function DetailPage() {
                 <div className="card m-3 mx-auto rounded-4 shadow detailCard">
                     <div className="row g-0">
                         <div className="col-8 col-md-4 m-4">
-                            <img src={book.img} className="bookDetailImg" ></img>
+                            <img src={book.img} className="bookDetailImg" alt={book.bookName} ></img>
                         </div>
                         <div className="col-md m-3">
                             <p><b>Book name: </b>{book.bookName}</p>
