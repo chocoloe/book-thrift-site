@@ -29,13 +29,9 @@ export function Signin() {
     }, [])
 
     return (
-        <>
-        <h1>Sign in Page</h1>
-        <h2>Currently not logged in </h2>
         <div className='container sign-in'>
             {/* Firebase authentication */}
             <StyledFirebaseAuth firebaseAuth={auth} uiConfig={FIREBASEUI_CONFIG_OBJ} />
         </div>
-        </>
     );
 }
