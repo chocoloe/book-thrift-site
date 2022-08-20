@@ -16,8 +16,8 @@ export function BookGrid({ books }) {
 
 export function BookCard({ book }) {
     return (
-        <div className='bookcard col col-12 col-md-6 col-xl-3 d-flex'>
-            <Card >
+        <div className='col col-12 col-md-6 col-xl-3 d-flex'>
+            <Card className='bookcard'>
                 <Card.Img className="card-img-top book-card-img" src={book.img} alt={book.name} />
                 <Card.Body>
                     <Card.Title className='cardTitle'>{book.bookName}</Card.Title>
@@ -26,7 +26,6 @@ export function BookCard({ book }) {
                             <li className="card-text">{`Course: ${book.course}`}</li>
                             <li className="card-text">{`Condition: ${book.condition}`}</li>
                             <li className="card-text">{`Price: ${book.price}`}</li>
-                            <li className="card-text">{`Seller's contact info: ${book.contact}`}</li>
                         </ul>
                         <Link to='/detail' state={{ book: book }}>More Details</Link>
                     </div>

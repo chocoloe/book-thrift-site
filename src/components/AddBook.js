@@ -20,7 +20,7 @@ export default function AddBook(props) {
 
     const [complete, setComplete] = useState(false);
 
-    const addNewBook = (bookName, courseName, condition, price, contact, location) => {
+    const addNewBook = (bookName, courseName, condition, price, contact, location, description) => {
         const newBook = {
           bookName: bookName,
           course: courseName,
@@ -28,7 +28,8 @@ export default function AddBook(props) {
           price: price,
           timestamp: Date.now(),
           contact: contact,
-          location: location
+          location: location,
+          description: description
         }
     
         //reference Firebase
@@ -49,7 +50,8 @@ export default function AddBook(props) {
         condition: "",
         price: "",
         contact: "",
-        location: ""
+        location: "",
+        description: ""
     }
 
     const [addBook, setAddBook] = useState(emptyState);
@@ -57,7 +59,7 @@ export default function AddBook(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         addNewBook(addBook.name, addBook.courseName, addBook.condition, 
-            addBook.price, addBook.contact, addBook.location);
+            addBook.price, addBook.contact, addBook.location, addBook.description);
             setAddBook(emptyState);
     }
 
@@ -78,12 +80,12 @@ export default function AddBook(props) {
             <form onSubmit={handleSubmit}>
                 <label>
                 Name:
-                <input type="text" value={addBook.name} name="name" placeholder="Ex. Harry Potter..." onChange={handleChange} />
+                <input type="text" value={addBook.name} name="name" placeholder="Ex. Braiding Sweetgrass..." onChange={handleChange} />
                 </label>
 
                 <label>
                 Course Name:
-                <input type="text" value={addBook.courseName} name="courseName" placeholder="Ex. INFO 340..." onChange={handleChange} />
+                <input type="text" value={addBook.courseName} name="courseName" placeholder="Ex. ENGL 299..." onChange={handleChange} />
                 </label>
 
                 <label>
@@ -104,6 +106,11 @@ export default function AddBook(props) {
                 <label>
                 Location:
                 <input type="text" value={addBook.location} name="location" placeholder="Ex. U-DISTRICT..." onChange={handleChange} />
+                </label>
+
+                <label>
+                Other description:
+                <input type="text" value={addBook.description} name="location" placeholder="Contact me for more details." onChange={handleChange} />
                 </label>
 
                 <button className="btn btn-primary" type="submit" >
