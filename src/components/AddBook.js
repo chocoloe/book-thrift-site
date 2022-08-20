@@ -20,11 +20,11 @@ export default function AddBook(props) {
 
     const [complete, setComplete] = useState(false);
 
-    const addNewBook = (bookName, courseName, imgUrl, condition, price, contact, location, description) => {
+    const addNewBook = (bookName, courseName, img, condition, price, contact, location, description) => {
         const newBook = {
           bookName: bookName,
           course: courseName,
-          imgUrl: imgUrl,
+          img: img,
           condition: condition,
           price: price,
           timestamp: Date.now(),
@@ -48,7 +48,7 @@ export default function AddBook(props) {
     const emptyState = {
         name: "",
         courseName: "",
-        imgUrl: "",
+        img: "",
         condition: "",
         price: "",
         contact: "",
@@ -60,7 +60,7 @@ export default function AddBook(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        addNewBook(addBook.name, addBook.courseName, addBook.imgUrl, addBook.condition, 
+        addNewBook(addBook.name, addBook.courseName, addBook.img, addBook.condition, 
             addBook.price, addBook.contact, addBook.location, addBook.description);
             setAddBook(emptyState);
     }
@@ -92,7 +92,7 @@ export default function AddBook(props) {
 
                 <label>
                 Image Link
-                <input type="text" value={addBook.courseName} name="imgUrl" placeholder="Ex. a google drive link" onChange={handleChange} />
+                <input type="text" value={addBook.img} name="img" placeholder="Ex. a google drive link" onChange={handleChange} />
                 </label>
 
                 <label>
