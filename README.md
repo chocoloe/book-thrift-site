@@ -1,4 +1,4 @@
-# project-chloe
-This is a final project for my client-side development class. It is a book thrifting website that people can upload books they want to sell and also browse book list uploaded by other people. 
+# Book Thrifting website
+It is a book thrifting website where people can upload books they want to sell and browse book lists uploaded by others. 
 
-Tech Stack: React, Firebase
+Tech Stack: React, Firebase, HTML, CSS
